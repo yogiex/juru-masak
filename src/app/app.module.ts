@@ -5,19 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatCardModule} from '@angular/material/card'; 
+import {MatTableModule} from '@angular/material/table';
 
 
 // modul component
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './toolbar/toolbar.component'
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { DataListComponent } from './data-list/data-list.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    DataListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component'
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    MatTableModule,
     HttpClientModule // modul request api
   ],
   providers: [],
