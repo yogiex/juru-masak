@@ -8,7 +8,7 @@ import { FetchApiService } from '../fetch-api.service';
 //   email: string;
 //   body: string;
 // }
-
+const Users = []
 @Component({
   selector: 'app-data-list',
   templateUrl: './data-list.component.html',
@@ -16,8 +16,8 @@ import { FetchApiService } from '../fetch-api.service';
 })
 export class DataListComponent implements OnInit {
 
-  Users = [];
-  
+  //Users = [];
+  dataSource = Users;
   constructor(public fetchApiService: FetchApiService) { }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class DataListComponent implements OnInit {
   fetchApi(){
     this.fetchApiService.getData().subscribe((data:any[]) =>{
       console.log(data);
-      this.Users = data;
+      this.dataSource = data;
     })
   }
 

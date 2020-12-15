@@ -26,24 +26,24 @@ export class FetchApiService {
     })
   }
 
-  // public getUsers(): Observable<User> {
-  //   return this.httpClient.get<User>(this.endpoint + '/users')
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.processError)
-  //   )
-  // }
+  
 
   public getData(){
-    return this.httpClient.get(this.endpoint);
+    return this.httpClient.get(this.endpoint)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
   }
-  // getSingleUser(id): Observable<User> {
-  //   return this.httpClient.get<User>(this.endpoint + '/users/' + id)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.processError)
-  //   )
-  // }
+
+  public getDataSingle(id){
+    return this.httpClient.get(this.endpoint+ '/users/'+ id)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
+  
 
   processError(err){
     let message = '';
